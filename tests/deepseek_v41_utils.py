@@ -63,7 +63,7 @@ def build_v41_cache_specs(config: Any, vllm_config: Any, prefix: str = "model"):
             dtype=torch.int8,
             tokens_per_state=role.compress_ratio,
             model_version="deepseek_v41",
-            # vLLM main (#57169) dropped MLA `storage_block_size`; v0.31.0 declares it.
+            # vLLM main (#57169) dropped MLA `storage_block_size`; v0.31.0 declares it. add comment "test"
             **({"storage_block_size": block_size // role.compress_ratio} if vllm_version_is("0.31.0") else {}),
             scale_dim=1,
             scale_dtype=torch.float16,
